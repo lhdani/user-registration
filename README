@@ -1,0 +1,88 @@
+User Registration API
+
+API REST construida con Java 21, Spring Boot, JPA, Swagger y H2 que permite registrar usuarios,
+validando correo electrónico y contraseña mediante expresiones regulares configurables.
+
+Tecnologías utilizadas
+- Java 21
+- Spring Boot 3.x
+- Spring Data JPA
+- H2 Database (en memoria)
+- Swagger (springdoc-openapi)
+- JUnit 5 + Mockito
+
+1. Ejecución del proyecto
+Cloná el proyecto y ejecutá:
+./mvnw spring-boot:run
+O desde tu IDE ejecutá la clase UserRegistrationApplication.
+
+2. Endpoints disponibles
+POST /api/users
+Registra un nuevo usuario.
+Request JSON
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "password": "Password1",
+  "phones": [
+    {
+      "number": "123456",
+      "citycode": "1",
+      "countrycode": "57"
+    }
+  ]
+}
+
+Validaciones:
+Email debe cumplir la regex definida en application.yml
+Password también debe cumplir su regex
+El email debe ser único en la base
+
+Respuestas posibles:
+201 CREATED: Usuario creado exitosamente
+{
+  "id": "...UUID...",
+  "created": "2025-04-22T13:45:23",
+  "modified": "2025-04-22T13:45:23",
+  "lastLogin": "2025-04-22T13:45:23",
+  "token": "...UUID...",
+  "isActive": true
+}
+400 BAD REQUEST: Email o password inválidos
+409 CONFLICT: "Correo ya registrado"
+
+3. Swagger UI (Documentación interactiva)
+Una vez levantada la app, podés entrar a:
+http://localhost:8080/swagger-ui/index.html
+Ahí podés probar el endpoint directamente desde el navegador.
+
+4. Consola H2
+Disponible en:
+http://localhost:8080/h2-console
+Datos de conexión:
+JDBC URL: jdbc:h2:mem:testdb
+User: sa
+Password: (dejar vacío)
+Presioná Connect para ver las tablas y datos persistidos.
+
+5. Ejecutar tests
+./mvnw test
+Incluye pruebas unitarias del servicio para:
++ Registro exitoso
++ Email duplicado
++ Email inválido
++ Contraseña inválida
+
+6. Configuración de expresiones regulares
+Ubicadas en src/main/resources/application.yml:
+regex:
+  email: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$"
+  password: "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+Se pueden modificar para ajustar las validaciones.
+
+7. Estructura de paquetes
+controller: Exposición de la API
+service: Lógica de negocio
+repository: Acceso a datos (JPA)
+entity: Entidades JPA
+dto: Objetos de transferencia de datos
