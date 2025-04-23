@@ -1,0 +1,12 @@
+C:\Users\daniel.loholaberry\Repositorios_personales\users\users\src\main\java\com\challenger\users\controller\UserController.java
+C:\Users\daniel.loholaberry\Repositorios_personales\users\users\src\main\java\com\challenger\users\dto\ErrorResponse.java
+C:\Users\daniel.loholaberry\Repositorios_personales\users\users\src\main\java\com\challenger\users\dto\PhoneRequest.java
+C:\Users\daniel.loholaberry\Repositorios_personales\users\users\src\main\java\com\challenger\users\dto\UserRequest.java
+C:\Users\daniel.loholaberry\Repositorios_personales\users\users\src\main\java\com\challenger\users\dto\UserResponse.java
+C:\Users\daniel.loholaberry\Repositorios_personales\users\users\src\main\java\com\challenger\users\entity\Phone.java
+C:\Users\daniel.loholaberry\Repositorios_personales\users\users\src\main\java\com\challenger\users\entity\User.java
+C:\Users\daniel.loholaberry\Repositorios_personales\users\users\src\main\java\com\challenger\users\exception\EmailAlreadyExistsException.java
+C:\Users\daniel.loholaberry\Repositorios_personales\users\users\src\main\java\com\challenger\users\exception\GlobalExceptionHandler.java
+C:\Users\daniel.loholaberry\Repositorios_personales\users\users\src\main\java\com\challenger\users\repository\UserRepository.java
+C:\Users\daniel.loholaberry\Repositorios_personales\users\users\src\main\java\com\challenger\users\service\UserService.java
+C:\Users\daniel.loholaberry\Repositorios_personales\users\users\src\main\java\com\challenger\users\UsersApplication.java
